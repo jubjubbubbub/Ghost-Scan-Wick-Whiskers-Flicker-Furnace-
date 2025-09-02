@@ -1,0 +1,19 @@
+public class GhostScanGame : MonoBehaviour {
+    public List<GameObject> ghostTickets;
+    public int foundCount = 0;
+
+    public void ScanGhost(GameObject ghost) {
+        if (ghost.CompareTag("RealGhostTicket")) {
+            foundCount++;
+            ghost.SetActive(false);
+            // Trigger flicker effect
+        }
+    }
+
+    public void CheckWinCondition() {
+        if (foundCount >= 3) {
+            Debug.Log("Ghost Scan Complete!");
+            // Unlock Ghost Ink or haunted potion
+        }
+    }
+}
